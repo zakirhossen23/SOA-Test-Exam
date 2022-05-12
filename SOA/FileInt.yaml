@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  description: Solution Upload Service - noun (CRUD) style
+  version: 1.0.0
+  title: Solution Upload
+paths:
+ /file/:
+    post:
+      summary: Receive file
+      description: Receives a file stream and return a URL
+      operationId: ReceiveFile
+      parameters:
+        - name: auth
+          in: query
+          description: authentication token
+          required: true
+          schema:
+            type: string
+      requestBody:
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+          required: true
+      responses:
+        '200':
+          description: OK (200)
+          content:
+            application/json:
+              schema:
+                type: string
+ /file/{filename}:
+    get:
+      summary: Returns the contents of a file as a file stream
+      description: Retrieve the file from the URL
+      operationId: ReturnFile
+      parameters:
+        - name: auth
+          in: query
+          description: authentication token
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK (200)
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+ /file:
+    get:
+      summary: Checks if file exists on the server
+      description: Checks if file with filename exists
+      operationId: checkFile
+      parameters:
+        - name: auth
+          in: query
+          description: authentication token
+          required: true
+          schema:
+            type: string
+        - name: filename
+          in: query
+          description: filename
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK (200)

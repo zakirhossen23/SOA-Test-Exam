@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  description: Assess Service - Student Interface
+  version: 1.0.0
+  title: Assess Student Interface
+paths:
+ /submit:
+    post:
+      summary: Submit assignment solution
+      description: Receives solution URL and returns solution details as JSON object
+      operationId: submit
+      parameters:
+        - name: sid
+          in: query
+          description: student id
+          required: true
+          schema:
+            type: string
+        - name: assessment
+          in: query
+          description: assessment id
+          required: true
+          schema:
+            type: string
+        - name: url
+          in: query
+          description: URL for submission file
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK (200)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  subNr:
+                    type: string
+                  url:
+                    type: string
+                  forAssessment:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      time:
+                        type: string
+                      forModule:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                          term:
+                            type: string
+ /getFeedback:
+    get:
+      summary: Returns feedback for submission
+      description: Returns feedback string for submission
+      operationId: getFeedback
+      parameters:
+        - name: sNr
+          in: query
+          description: submission number
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK (200)
+          content:
+            application/octet-stream:
+              schema:
+                type: string

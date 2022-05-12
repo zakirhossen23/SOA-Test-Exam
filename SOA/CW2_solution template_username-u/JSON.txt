@@ -1,0 +1,11 @@
+{"subNr":"1",
+ "url":"www.fileservice.com/samzie.txt",
+ "forAssessment":
+     {"date":"1/4/2022",
+     "time":"00:00",
+     "forModule":
+     {"code":"CO7214",
+      "term":"Spring2020"
+     }
+    }
+}

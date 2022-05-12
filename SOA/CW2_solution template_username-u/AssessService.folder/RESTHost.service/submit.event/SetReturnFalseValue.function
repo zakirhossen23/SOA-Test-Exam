@@ -1,0 +1,36 @@
+{
+  "Properties": [
+    {
+      "Id": "Source",
+      "Type": "Generated:9NjY",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "ParsedExpression": "{\"HttpContext\":{\"LinxExpression\":\"[PARSED]\"}, \"Response200\":{\"subNr\":\"no such file\"}}",
+        "ExpressionPlaceholders": [
+          {
+            "typePath": [
+              "HttpContext"
+            ],
+            "expression": {
+              "Expression": "$.Parameters.HttpContext",
+              "CompiledExpression": "={0}",
+              "Type": "Compiled:Twenty57.Linx.Plugins.Rest.OpenAPIWebService.OpenAPI.Data.In.HttpContext, Twenty57.Linx.Plugins.Rest, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null"
+            }
+          }
+        ]
+      },
+      "ValueType": "Linx.JsonExpression"
+    },
+    {
+      "Id": "Target",
+      "Type": "Generated:9NjY",
+      "ValueUsage": "RuntimeWrite",
+      "Value": {
+        "Expression": "$.Result",
+        "CompiledExpression": "={0}",
+        "Type": "Generated:9NjY"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    }
+  ]
+}
